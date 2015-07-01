@@ -1,0 +1,95 @@
+body {
+  font-size: 100%;
+  line-height: 2.4em;
+  font-family: 'Gudea', sans-serif;
+}
+
+.main-grid {
+  margin: 5%;
+  box-shadow: 0 0 1em #b8b3af;
+}
+
+/*nav area*/
+.flexy-nav {
+  display: flex;
+  flex-direction: row;
+  border: solid 2px #92B5BB;
+  background-color: #f9653b;
+  color: white;
+  opacity: .9;
+}
+
+.flexy-nav-items {
+  flex: 1;
+  flex-direction: row;
+  padding: 1%;
+
+}
+
+.flex-logo {
+  display: flex;
+  justify-content: flex-start;
+  font-weight: bolder;
+  font-size: 2.7em;
+  padding: 1%;
+}
+
+.flex-nums {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bolder;
+  font-size: 2.7em;
+}
+
+/*meeting grid area*/
+.grid {
+  border: solid 1px #eee;
+  border: solid 1px #f9653b;
+}
+
+.grid-row {
+  display: flex;
+}
+/*flex 1 makes them occupy an equal amt of space relative to the full width of the conatiner*/
+.grid-item {
+  flex: 1;
+  padding: 1%;
+  border: solid 1px #ddd;
+  border: solid 1px #f9653b;
+  background-color: #92B5BB;
+  color: white;
+}
+
+.flex-item {
+  padding: 2%;
+}
+
+.times {
+  padding: 1%;
+  display: inline-flex;
+  font-size: 3.3em;
+  font-weight: bolder;
+
+}
+
+.who-where {
+  padding: 1%;
+}
+
+.name {
+  font-size: 5.3em;
+  padding-bottom: 4%;
+  font-weight: bolder;
+
+}
+
+.location {
+  font-size: 2.7em;
+  padding-bottom: 1%;
+  font-weight: bolder;
+
+}
+
+.attendees {
+ font-size: 1.9em;
+}

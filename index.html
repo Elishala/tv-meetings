@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TV Meetings</title>
+    <link rel="stylesheet" type="text/css" href="styles/reset.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Gudea' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="main-grid">
+        <nav class="flexy-nav">
+          <ul class="flexy-nav-items">
+            <li class="flex-logo">Back To The Future Meetings</li>
+            <li class="flex-nums">
+              <iframe src="http://free.timeanddate.com/clock/i4qkpeke/n207/fn14/fs48/fcfff/tcf9653b/pcf9653b/ftb/th2/ts1" frameborder="0" width="232" height="60"></iframe>
+            </li>
+          </ul>
+        </nav>
+        <div class="grid">
+          <div class="grid-row">
+            <div class="grid-item">
+              <div class="flex-item">
+                <ul class="times">
+                  <li class="start_time"> 8:00 <span class="dash"> &ndash; </span> </li>
+                  <li class="end_time">  9:30 </li>
+                </ul>
+                <ul class="who-where">
+                  <li class="name"> Project Design Meeting </li>
+                  <li class="location"> Main Conference Room </li>
+                  <li class="attendees"> Marty McFly, Doc Brown </li>
+                </ul>
+              </div>
+              </div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-item">
+              <div class="flex-item">
+                <ul class="times">
+                  <li class="start_time"> 10:15 <span class="dash"> &ndash; </span> </li>
+                  <li class="end_time"> 10:45 </li>
+                </ul>
+                <ul class="who-where">
+                  <li class="name"> Project Kickoff Meeting </li>
+                  <li class="location"> Room C </li>
+                  <li class="attendees"> Biff Tannen, Lorrain Baines </li>
+                </ul>
+              </div>
+              </div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-item">
+              <div class="flex-item">
+                <ul class="times">
+                  <li class="start_time"> 12:00 <span class="dash"> &ndash; </span> </li>
+                  <li class="end_time"> 1:00 </li>
+                </ul>
+                <ul class="who-where">
+                  <li class="name"> Company Meeting </li>
+                  <li class="location"> Main Conference Room </li>
+                  <li class="attendees"> Marty McFly, Doc Brown, George McFly, Biff Tannen, Lorrain Baines </li>
+                </ul>
+              </div>
+              </div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-item">
+              <div class="flex-item">
+                <ul class="times">
+                  <li class="start_time"> 2:00 <span class="dash"> &ndash; </span> </li>
+                  <li class="end_time"> 4:00 </li>
+                </ul>
+                <ul class="who-where">
+                  <li class="name"> Project Design Meeting </li>
+                  <li class="location"> Main Conference Room </li>
+                  <li class="attendees"> Doc Brown, George McFly </li>
+                </ul>
+              </div>
+              </div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-item">
+              <div class="flex-item">
+                <ul class="times">
+                  <li class="start_time"> 2:15 <span class="dash"> &ndash; </span> </li>
+                  <li class="end_time">3:15</li>
+                </ul>
+                <ul class="who-where">
+                  <li class="name"> Project Review Meeting </li>
+                  <li class="location"> Room A  </li>
+                  <li class="attendees"> Biff Tannen, Lorrain Baines </li>
+                </ul>
+              </div>
+              </div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-item">
+              <div class="flex-item">
+                <ul class="times">
+                  <li class="start_time"> 4:30 <span class="dash"> &ndash; </span> </li>
+                  <li class="end_time"> 5:00 </li>
+                </ul>
+                <ul class="who-where">
+                  <li class="name"> Standup </li>
+                  <li class="location"> Lounge </li>
+                  <li class="attendees"> Marty McFly, Doc Brown, George McFly, Biff Tannen, Lorrain Baines </li>
+                </ul>
+              </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="js/api.js"></script>
+    <script>
+    //not working
+     $(document).ready(function() {
+       $getJSON("http://fake-co-calendar.herokuapp.com/api/v1/events?callback=JSON_CALLBACK", function(list) {
+          var items = [ ];
+          $.each(list, function(key, val) {
+            items.push('<li class=" " ' + key + ' " ">') + val '</li>');
+          });
+          $('<ul/>', {
+            'class' : 'times',
+            html: items.join('')
+          }).appendTo('body');
+        });
+     });
+    </script>
+    <script type="application/javascript" src="http://fake-co-calendar.herokuapp.com/api/v1/events?callback=JSON_CALLBACK"></script>
+  </body>
+</html>
+
+<!-- didn't work -->
+<!-- $(document).ready(function() {
+  $("events.all").click(function(events) {
+    $.getJSON('result.json', function(list) {
+      $('.li').html('<li> start_time: ' + list.start_time + '</li>');
+      $('.li').append('<li> end_time: ' + list.end_time + '</li>');
+      $('.li').append('<li> name: ' + list.name + '</li>');
+      $('.li').append('<li> location: ' + list.location + '</li>');
+      $('.li').append('<li> attendees: ' + list.attendees + '</li>');
+    });
+  });
+}); -->
